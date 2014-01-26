@@ -1,0 +1,27 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
+
+<script>
+
+// temp script to bypass cross domain bullshit
+var tscript;
+
+function fetch() {
+  tscript = document.createElement("script");
+  tscript.type = "text/javascript";
+  tscript.src = "http://en.wikipedia.org/w/api.php?format=json&action=query" +
+    "&titles=Main%20Page&prop=revisions&rvprop=content&callback=fetchComplete";
+  document.body.appendChild(tscript);
+}
+
+function fetchComplete(data) {
+  document.body.removeChild(tscript);
+  tscript = null;
+  console.log(data);
+}
+
+$(document).ready( function () {
+  fetch();
+});
+
+</script>
