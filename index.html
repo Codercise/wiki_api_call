@@ -25,3 +25,9 @@ $(document).ready( function () {
 });
 
 </script>
+
+  <script type="text/javascript">
+    jQuery.getJSON("http://en.wikipedia.org/w/api.php?format=json&callback=?&action=query&titles=Berlin&prop=revisions&rvprop=content", function(data) {
+      //alert(data);
+    });
+  </script>
